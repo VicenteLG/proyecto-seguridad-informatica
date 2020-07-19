@@ -5,6 +5,7 @@ TIPO = (
 	('25', '25%'),
 	('50', '50%'),
 	('75', '75%'),
+	('100%', '100%'),
 )
 
 # Create your models here.
@@ -13,4 +14,4 @@ class Recomendacion(models.Model):
 	recomendacion = models.TextField(blank=True)
 	autor = models.ForeignKey(Profile, on_delete=models.CASCADE)
 	fecha_recomendacion = models.DateTimeField()
-	tipo_recomendacion = models.CharField(choices=TIPO, max_length=2)
+	tipo_recomendacion = models.CharField(choices=TIPO, max_length=4)
