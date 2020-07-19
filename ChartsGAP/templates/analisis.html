@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block title %}
+Analisis
+{% endblock %}
+
+{% block navbar %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'home' %}">Home</a>
+</li>
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'analisis' %}">Analisis <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'recomendaciones' %}">Recomendaciones</a>
+</li>
+{% endblock %}
+
+{% block content_head %}
+<h1>Analisis</h1>
+{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fas fa-home"></i></a></li>
+    <li class="breadcrumb-item active" aria-current="page">Analisis</li>
+{% endblock %}
+
+{% block content_body %}
+
+
+
+{% endblock %}

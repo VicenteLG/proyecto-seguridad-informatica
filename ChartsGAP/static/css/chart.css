@@ -1,0 +1,36 @@
+
+table {
+  width:100%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.breadcrumb a {
+  color: black;
+}
+.bg-dark-primary {
+	background-color: #343a40!important;
+	margin: 0;
+	padding: 0;
+}
+
+.bg-dark-primary .container{
+	color: #9a9793;
+}
+
+.bg-dark-primary .container p{
+	width: 100%;
+	text-align: right;
+	margin-bottom: 0;
+}
+
+.bg-dark-primary .container a{
+	color: #9a9793;
+	text-decoration: none;
+}
+
+.bg-dark-primary .container a:hover{
+	color: #FFF;
+}
