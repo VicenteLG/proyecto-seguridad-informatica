@@ -64,6 +64,13 @@ def register(request):
 					age=request.POST['age'],
 					email=request.POST['email'],
 					rut=request.POST['rut'],
+					primer_nombre=request.POST['primer_nombre'],
+					segundo_nombre=request.POST['segundo_nombre'],
+					apellido_paterno=request.POST['apellido_paterno'],
+					apellido_materno=request.POST['apellido_materno'],
+					cargo=request.POST['cargo'],
+					departamento=request.POST['departamento'],
+					sucursal=request.POST['sucursal'],
 				)
 
 				user.save()
