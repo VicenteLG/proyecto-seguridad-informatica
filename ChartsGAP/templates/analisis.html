@@ -28,6 +28,44 @@ Analisis
 
 {% block content_body %}
 
+	{% for dominio in dominios %}
+
+		<div class='col-3'>
+			<div class="card" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">Dominio N°{{ dominio.pk }}: {{ dominio.nombre_dominio }} </h5>
+					<p class="card-text">SAMPLE TEXT</p>
+					{% if dominio.pk == 1 %}
+						<a href="{% url 'analisis_uno' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+					{% elif dominio.pk == 2 %}
+						<a href="{% url 'analisis_dos' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+					{% elif dominio.pk == 3 %}
+						<a href="{% url 'analisis_tres' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+					{% elif dominio.pk == 4 %}
+						<a href="{% url 'analisis_cuatro' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+					{% elif dominio.pk == 5 %}
+						<a href="{% url 'analisis_cinco' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+					{% elif dominio.pk == 6 %}
+						<a href="{% url 'analisis_seis' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+					{% elif dominio.pk == 7 %}
+						<a href="{% url 'analisis_siete' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+					{% elif dominio.pk == 8 %}
+						<a href="{% url 'analisis_ocho' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+					{% elif dominio.pk == 9 %}
+						<a href="{% url 'analisis_nueve' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+					{% elif dominio.pk == 10 %}
+						<a href="{% url 'analisis_diez' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+					{% else %}
+						<a href="{% url 'analisis_once' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+
+	{% endfor %}
+
+	<div class='col-3'></div>
+</div>
 
 
 {% endblock %}

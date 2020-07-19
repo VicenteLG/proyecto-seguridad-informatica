@@ -89,7 +89,7 @@ def analisis(request):
 	template_name = "analisis.html"
 	data = {}
 
-	data['dominio'] = Dominio.objects.all()
+	data['dominios'] = Dominio.objects.all()
 
 	return render(request, template_name, data)
 
