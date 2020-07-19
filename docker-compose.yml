@@ -1,0 +1,11 @@
+version: '3'
+
+services: 
+    web:
+        build: .
+        image: mcantillana/django_unab:3.0.1
+        ports:
+            - "8000:8000"
+        command: python manage.py runserver 0:8000
+        volumes:
+            - .:/code
