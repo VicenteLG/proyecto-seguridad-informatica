@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block navbar %}
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'analisis' %}">Analisis</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'recomendaciones' %}">Recomendaciones</a>
+</li>
+{% endblock %}
+
+{% block content_head %}
+<h1>Registro</h1>
+{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fas fa-home"></i></a></li>
+    <li class="breadcrumb-item active" aria-current="page">Registro</li>
+{% endblock %}
+
+{% block content_body %}
+
+  {% bootstrap_messages %}
+
+    
+  <form class="form-group" method="post" >
+    {% csrf_token %}
+         
+    {% bootstrap_form form %}
+
+    {% buttons %}
+      <button type="submit" class="btn btn-primary btn-lg btn-block">
+        <i class="fas fa-save"></i> Crear usuario
+      </button>
+    {% endbuttons %}
+  </form>
+
+
+{% endblock %}
