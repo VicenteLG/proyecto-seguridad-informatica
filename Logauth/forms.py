@@ -26,5 +26,5 @@ class ProfileForm(forms.Form):
 	email = forms.EmailField(label='Email')
 	rut = forms.CharField(label='Rut', max_length=12)
 	cargo = forms.ChoiceField(label='Cargo', widget=forms.Select, choices=CARGO)
-	departamento = forms.ChoiceField(label='Departamento', widget=forms.Select, choices=Departamento)
-	sucursal = forms.ChoiceField(label='Sucursal', widget=forms.Select, choices=Sucursal)
+	departamento = forms.ChoiceField(label='Departamento', widget=forms.Select, choices=DEPARTAMENTO)
+	sucursal = forms.ChoiceField(label='Sucursal', widget=forms.Select, choices=SUCURSAL)

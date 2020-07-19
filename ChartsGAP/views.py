@@ -89,7 +89,7 @@ def analisis(request):
 	template_name = "analisis.html"
 	data = {}
 
-	data['respuestas'] = Respuesta.objects.all()
+	data['dominio'] = Dominio.objects.all()
 
 	return render(request, template_name, data)
 
@@ -226,7 +226,7 @@ def analisis_uno(request, pk):
 			#Sacando porcentajes
 			set_por(data)
 
-			redirect('analisis_dos', pk)
+			redirect('analisis')
 
 	return render(request, template_name, data)
 
@@ -427,7 +427,7 @@ def analisis_dos(request, pk):
 			#Sacando porcentajes
 			set_por(data)
 
-			redirect('analisis_tres', pk)
+			redirect('analisis')
 
 	return render(request, template_name, data)
 
@@ -531,7 +531,7 @@ def analisis_tres(request, pk):
 
 			set_por(data)
 
-			redirect('analisis_cuatro', pk)
+			redirect('analisis')
 
 	return render(request, template_name, data)
 
@@ -715,7 +715,7 @@ def analisis_cuatro(request, pk):
 
 			set_por(data)
 
-			redirect('analisis_cinco', pk)
+			redirect('analisis')
 
 	return render(request, template_name, data)
 
@@ -1090,7 +1090,7 @@ def analisis_cinco(request, pk):
 
 			set_por(data)
 
-			redirect('analisis_seis', pk)
+			redirect('analisis')
 
 	return render(request, template_name, data)
 
@@ -1896,7 +1896,7 @@ def analisis_seis(request, pk):
 
 			set_por(data)
 
-			redirect('analisis_siete', pk)
+			redirect('analisis')
 
 	return render(request, template_name, data)
 
@@ -2447,7 +2447,7 @@ def analisis_siete(request, pk):
 
 			set_por(data)
 
-			redirect('analisis_ocho', pk)
+			redirect('analisis')
 
 	return render(request, template_name, data)
 
@@ -2998,7 +2998,7 @@ def analisis_ocho(request, pk):
 
 			set_por(data)
 
-			redirect('analisis_nueve', pk)
+			redirect('analisis')
 
 	return render(request, template_name, data)
 
@@ -3197,7 +3197,7 @@ def analisis_nueve(request, pk):
 
 			set_por(data)
 
-			redirect('analisis_diez', pk)
+			redirect('analisis')
 
 	return render(request, template_name, data)
 
@@ -3393,7 +3393,7 @@ def analisis_diez(request, pk):
 
 			set_por(data)
 
-			redirect('analisis_once', pk)
+			redirect('analisis')
 
 	return render(request, template_name, data)
 
@@ -3763,6 +3763,6 @@ def analisis_once(request, pk):
 			Evento.objects.filter(pk=0).update(porcentaje_no_cumplimiento=int(100 - (total/contador)))
 
 
-			redirect('analisis_tres', pk)
+			redirect('analisis')
 
 	return render(request, template_name, data)
