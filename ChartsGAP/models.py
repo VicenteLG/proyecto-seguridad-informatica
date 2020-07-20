@@ -25,9 +25,7 @@ class Seccion(models.Model):
 	porcentaje_no_cumplimiento = models.PositiveIntegerField(default=0)
 	control = models.ManyToManyField(Control, null=True, blank=True)
 
-class Encuestados(models.Model):
-	profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-	fecha_encuesta = models.DateTimeField()
+
 
 class Dominio(models.Model):
 	nombre_dominio = models.CharField(max_length=75)
@@ -36,7 +34,6 @@ class Dominio(models.Model):
 	seccion = models.ManyToManyField(Seccion, null=True, blank=True)
 	recomendacion = models.ManyToManyField(Recomendacion, null=True, blank=True)
 	responsable = models.ForeignKey(Profile, on_delete=models.CASCADE)
-	encuestados = models.ManyToManyField(Encuestados, null=True, blank=True)
 
 class Evaluacion(models.Model):
 	porcentaje_cumplimiento = models.PositiveIntegerField(default=0)
