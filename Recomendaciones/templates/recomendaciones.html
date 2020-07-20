@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block title %}
+Recomendaciones
+{% endblock %}
+
+{% block navbar %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'home' %}">Home</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'analisis' %}">Analisis</a>
+</li>
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'recomendaciones' %}">Recomendaciones <span class="sr-only">(current)</span></a>
+</li>
+{% endblock %}
+
+{% block content_head %}
+<h1>Recomendaciones</h1>
+{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fas fa-home"></i></a></li>
+    <li class="breadcrumb-item active" aria-current="page">Recomendaciones</li>
+{% endblock %}
+
+{% block content_body %}
+	{% for dominio in dominios %}
+		<div class='col-4'>
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Dominio N°{{ dominio.pk }}: {{ dominio.nombre_dominio }} </h5>
+						{% if dominio.pk == 1 %}
+							{% for recomendacion in dominio.recomendacion.all %}
+								{% if dominio.porcentaje_cumplimiento <= 25 and recomendacion.tipo_recomendacion == '25'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 25 and dominio.porcentaje_cumplimiento <= 50 and recomendacion.tipo_recomendacion == '50'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 50 and dominio.porcentaje_cumplimiento <= 75 and recomendacion.tipo_recomendacion == '75'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 75 and dominio.porcentaje_cumplimiento <= 100 and recomendacion.tipo_recomendacion == '100'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% endif %}
+							{% endfor %}
+						{% elif dominio.pk == 2 %}
+							{% for recomendacion in dominio.recomendacion.all %}
+								{% if dominio.porcentaje_cumplimiento <= 25 and recomendacion.tipo_recomendacion == '25'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 25 and dominio.porcentaje_cumplimiento <= 50 and recomendacion.tipo_recomendacion == '50'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 50 and dominio.porcentaje_cumplimiento <= 75 and recomendacion.tipo_recomendacion == '75'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 75 and dominio.porcentaje_cumplimiento <= 100 and recomendacion.tipo_recomendacion == '100'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% endif %}
+							{% endfor %}
+						{% elif dominio.pk == 3 %}
+							{% for recomendacion in dominio.recomendacion.all %}
+								{% if dominio.porcentaje_cumplimiento <= 25 and recomendacion.tipo_recomendacion == '25'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 25 and dominio.porcentaje_cumplimiento <= 50 and recomendacion.tipo_recomendacion == '50'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 50 and dominio.porcentaje_cumplimiento <= 75 and recomendacion.tipo_recomendacion == '75'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 75 and dominio.porcentaje_cumplimiento <= 100 and recomendacion.tipo_recomendacion == '100'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% endif %}
+							{% endfor %}
+						{% elif dominio.pk == 4 %}
+							{% for recomendacion in dominio.recomendacion.all %}
+								{% if dominio.porcentaje_cumplimiento <= 25 and recomendacion.tipo_recomendacion == '25'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 25 and dominio.porcentaje_cumplimiento <= 50 and recomendacion.tipo_recomendacion == '50'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 50 and dominio.porcentaje_cumplimiento <= 75 and recomendacion.tipo_recomendacion == '75'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 75 and dominio.porcentaje_cumplimiento <= 100 and recomendacion.tipo_recomendacion == '100'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% endif %}
+							{% endfor %}
+						{% elif dominio.pk == 5 %}
+							{% for recomendacion in dominio.recomendacion.all %}
+								{% if dominio.porcentaje_cumplimiento <= 25 and recomendacion.tipo_recomendacion == '25'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 25 and dominio.porcentaje_cumplimiento <= 50 and recomendacion.tipo_recomendacion == '50'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 50 and dominio.porcentaje_cumplimiento <= 75 and recomendacion.tipo_recomendacion == '75'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 75 and dominio.porcentaje_cumplimiento <= 100 and recomendacion.tipo_recomendacion == '100'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% endif %}
+							{% endfor %}
+						{% elif dominio.pk == 6 %}
+							{% for recomendacion in dominio.recomendacion.all %}
+								{% if dominio.porcentaje_cumplimiento <= 25 and recomendacion.tipo_recomendacion == '25'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 25 and dominio.porcentaje_cumplimiento <= 50 and recomendacion.tipo_recomendacion == '50'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 50 and dominio.porcentaje_cumplimiento <= 75 and recomendacion.tipo_recomendacion == '75'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 75 and dominio.porcentaje_cumplimiento <= 100 and recomendacion.tipo_recomendacion == '100'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% endif %}
+							{% endfor %}
+						{% elif dominio.pk == 7 %}
+							{% for recomendacion in dominio.recomendacion.all %}
+								{% if dominio.porcentaje_cumplimiento <= 25 and recomendacion.tipo_recomendacion == '25'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 25 and dominio.porcentaje_cumplimiento <= 50 and recomendacion.tipo_recomendacion == '50'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 50 and dominio.porcentaje_cumplimiento <= 75 and recomendacion.tipo_recomendacion == '75'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 75 and dominio.porcentaje_cumplimiento <= 100 and recomendacion.tipo_recomendacion == '100'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% endif %}
+							{% endfor %}
+						{% elif dominio.pk == 8 %}
+							{% for recomendacion in dominio.recomendacion.all %}
+								{% if dominio.porcentaje_cumplimiento <= 25 and recomendacion.tipo_recomendacion == '25'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 25 and dominio.porcentaje_cumplimiento <= 50 and recomendacion.tipo_recomendacion == '50'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 50 and dominio.porcentaje_cumplimiento <= 75 and recomendacion.tipo_recomendacion == '75'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 75 and dominio.porcentaje_cumplimiento <= 100 and recomendacion.tipo_recomendacion == '100'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% endif %}
+							{% endfor %}
+						{% elif dominio.pk == 9 %}
+							{% for recomendacion in dominio.recomendacion.all %}
+								{% if dominio.porcentaje_cumplimiento <= 25 and recomendacion.tipo_recomendacion == '25'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 25 and dominio.porcentaje_cumplimiento <= 50 and recomendacion.tipo_recomendacion == '50'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 50 and dominio.porcentaje_cumplimiento <= 75 and recomendacion.tipo_recomendacion == '75'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 75 and dominio.porcentaje_cumplimiento <= 100 and recomendacion.tipo_recomendacion == '100'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% endif %}
+							{% endfor %}
+						{% elif dominio.pk == 10 %}
+							{% for recomendacion in dominio.recomendacion.all %}
+								{% if dominio.porcentaje_cumplimiento <= 25 and recomendacion.tipo_recomendacion == '25'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 25 and dominio.porcentaje_cumplimiento <= 50 and recomendacion.tipo_recomendacion == '50'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 50 and dominio.porcentaje_cumplimiento <= 75 and recomendacion.tipo_recomendacion == '75'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 75 and dominio.porcentaje_cumplimiento <= 100 and recomendacion.tipo_recomendacion == '100'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% endif %}
+							{% endfor %}
+						{% else %}
+							{% for recomendacion in dominio.recomendacion.all %}
+								{% if dominio.porcentaje_cumplimiento <= 25 and recomendacion.tipo_recomendacion == '25'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 25 and dominio.porcentaje_cumplimiento <= 50 and recomendacion.tipo_recomendacion == '50'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 50 and dominio.porcentaje_cumplimiento <= 75 and recomendacion.tipo_recomendacion == '75'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% elif dominio.porcentaje_cumplimiento > 75 and dominio.porcentaje_cumplimiento <= 100 and recomendacion.tipo_recomendacion == '100'%}
+									<p class="card-text">{{recomendacion.recomendacion}}</p>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+				</div>
+			</div>
+		</div>
+			{% endfor %}
+		<div class='col-4'></div>
+
+</div>
+
+{% endblock %}
