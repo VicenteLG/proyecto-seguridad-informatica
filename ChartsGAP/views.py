@@ -99,6 +99,7 @@ def analisis_uno(request, pk):
 	data['form'] = AnalisisGAPDominioUnoForm(request.POST or None)
 	data['profile'] = request.user
 	data['dominio'] = Dominio.objects.get(pk=1)
+	data['analisis'] = Evaluacion.objects.all()
 
 	if request.method == 'POST':
 		if data['form'].is_valid():
@@ -226,6 +227,15 @@ def analisis_uno(request, pk):
 			#Sacando porcentajes
 			set_por(data)
 
+			total=0
+			contador=0
+
+			for porcentaje in data['analisis'].dominio.all():
+				total+= porcentaje.porcentaje_cumplimiento
+				contador+=1
+			Evento.objects.filter(pk=0).update(porcentaje_cumplimiento=int(total/contador))
+			Evento.objects.filter(pk=0).update(porcentaje_no_cumplimiento=int(100 - (total/contador)))
+
 			redirect('analisis')
 
 	return render(request, template_name, data)
@@ -236,6 +246,7 @@ def analisis_dos(request, pk):
 	data['form'] = AnalisisGAPDominioDosForm(request.POST or None)
 	data['profile'] = request.user
 	data['dominio'] = Dominio.objects.get(pk=2)
+	data['analisis'] = Evaluacion.objects.all()
 
 	if request.method == 'POST':
 		if data['form'].is_valid():
@@ -427,6 +438,15 @@ def analisis_dos(request, pk):
 			#Sacando porcentajes
 			set_por(data)
 
+			total=0
+			contador=0
+
+			for porcentaje in data['analisis'].dominio.all():
+				total+= porcentaje.porcentaje_cumplimiento
+				contador+=1
+			Evento.objects.filter(pk=0).update(porcentaje_cumplimiento=int(total/contador))
+			Evento.objects.filter(pk=0).update(porcentaje_no_cumplimiento=int(100 - (total/contador)))
+
 			redirect('analisis')
 
 	return render(request, template_name, data)
@@ -437,6 +457,7 @@ def analisis_tres(request, pk):
 	data['form'] = AnalisisGAPDominioTresForm(request.POST or None)
 	data['profile'] = request.user
 	data['dominio'] = Dominio.objects.get(pk=3)
+	data['analisis'] = Evaluacion.objects.all()
 
 	if request.method == 'POST':
 		if data['form'].is_valid():
@@ -531,6 +552,15 @@ def analisis_tres(request, pk):
 
 			set_por(data)
 
+			total=0
+			contador=0
+
+			for porcentaje in data['analisis'].dominio.all():
+				total+= porcentaje.porcentaje_cumplimiento
+				contador+=1
+			Evento.objects.filter(pk=0).update(porcentaje_cumplimiento=int(total/contador))
+			Evento.objects.filter(pk=0).update(porcentaje_no_cumplimiento=int(100 - (total/contador)))
+
 			redirect('analisis')
 
 	return render(request, template_name, data)
@@ -541,6 +571,7 @@ def analisis_cuatro(request, pk):
 	data['form'] = AnalisisGAPDominioCuatroForm(request.POST or None)
 	data['profile'] = request.user
 	data['dominio'] = Dominio.objects.get(pk=4)
+	data['analisis'] = Evaluacion.objects.all()
 
 	if request.method == 'POST':
 		if data['form'].is_valid():
@@ -715,6 +746,15 @@ def analisis_cuatro(request, pk):
 
 			set_por(data)
 
+			total=0
+			contador=0
+
+			for porcentaje in data['analisis'].dominio.all():
+				total+= porcentaje.porcentaje_cumplimiento
+				contador+=1
+			Evento.objects.filter(pk=0).update(porcentaje_cumplimiento=int(total/contador))
+			Evento.objects.filter(pk=0).update(porcentaje_no_cumplimiento=int(100 - (total/contador)))
+
 			redirect('analisis')
 
 	return render(request, template_name, data)
@@ -725,6 +765,8 @@ def analisis_cinco(request, pk):
 	data['form'] = AnalisisGAPDominioCincoForm(request.POST or None)
 	data['profile'] = request.user
 	data['dominio'] = Dominio.objects.get(pk=5)
+	data['analisis'] = Evaluacion.objects.all()
+
 	if request.method == 'POST':
 		if data['form'].is_valid():
 			#Subcontrol1
@@ -1090,6 +1132,15 @@ def analisis_cinco(request, pk):
 
 			set_por(data)
 
+			total=0
+			contador=0
+
+			for porcentaje in data['analisis'].dominio.all():
+				total+= porcentaje.porcentaje_cumplimiento
+				contador+=1
+			Evento.objects.filter(pk=0).update(porcentaje_cumplimiento=int(total/contador))
+			Evento.objects.filter(pk=0).update(porcentaje_no_cumplimiento=int(100 - (total/contador)))
+
 			redirect('analisis')
 
 	return render(request, template_name, data)
@@ -1100,6 +1151,8 @@ def analisis_seis(request, pk):
 	data['form'] = AnalisisGAPDominioSeisForm(request.POST or None)
 	data['profile'] = request.user
 	data['dominio'] = Dominio.objects.get(pk=6)
+	data['analisis'] = Evaluacion.objects.all()
+
 	if request.method == 'POST':
 		if data['form'].is_valid():
 			#Subcontrol1
@@ -1896,6 +1949,15 @@ def analisis_seis(request, pk):
 
 			set_por(data)
 
+			total=0
+			contador=0
+
+			for porcentaje in data['analisis'].dominio.all():
+				total+= porcentaje.porcentaje_cumplimiento
+				contador+=1
+			Evento.objects.filter(pk=0).update(porcentaje_cumplimiento=int(total/contador))
+			Evento.objects.filter(pk=0).update(porcentaje_no_cumplimiento=int(100 - (total/contador)))
+
 			redirect('analisis')
 
 	return render(request, template_name, data)
@@ -1906,6 +1968,8 @@ def analisis_siete(request, pk):
 	data['form'] = AnalisisGAPDominioSieteForm(request.POST or None)
 	data['profile'] = request.user
 	data['dominio'] = Dominio.objects.get(pk=7)
+	data['analisis'] = Evaluacion.objects.all()
+
 	if request.method == 'POST':
 		if data['form'].is_valid():
 			#Subcontrol1
@@ -2446,6 +2510,15 @@ def analisis_siete(request, pk):
 			respuesta_treintaitres.save()
 
 			set_por(data)
+
+			total=0
+			contador=0
+
+			for porcentaje in data['analisis'].dominio.all():
+				total+= porcentaje.porcentaje_cumplimiento
+				contador+=1
+			Evento.objects.filter(pk=0).update(porcentaje_cumplimiento=int(total/contador))
+			Evento.objects.filter(pk=0).update(porcentaje_no_cumplimiento=int(100 - (total/contador)))
 
 			redirect('analisis')
 
@@ -2457,6 +2530,8 @@ def analisis_ocho(request, pk):
 	data['form'] = AnalisisGAPDominioOchoForm(request.POST or None)
 	data['profile'] = request.user
 	data['dominio'] = Dominio.objects.get(pk=8)
+	data['analisis'] = Evaluacion.objects.all()
+
 	if request.method == 'POST':
 		if data['form'].is_valid():
 			#Subcontrol1
@@ -2998,6 +3073,15 @@ def analisis_ocho(request, pk):
 
 			set_por(data)
 
+			total=0
+			contador=0
+
+			for porcentaje in data['analisis'].dominio.all():
+				total+= porcentaje.porcentaje_cumplimiento
+				contador+=1
+			Evento.objects.filter(pk=0).update(porcentaje_cumplimiento=int(total/contador))
+			Evento.objects.filter(pk=0).update(porcentaje_no_cumplimiento=int(100 - (total/contador)))
+
 			redirect('analisis')
 
 	return render(request, template_name, data)
@@ -3008,6 +3092,8 @@ def analisis_nueve(request, pk):
 	data['form'] = AnalisisGAPDominioNueveForm(request.POST or None)
 	data['profile'] = request.user
 	data['dominio'] = Dominio.objects.get(pk=9)
+	data['analisis'] = Evaluacion.objects.all()
+
 	if request.method == 'POST':
 		if data['form'].is_valid():
 			#Subcontrol1
@@ -3197,6 +3283,15 @@ def analisis_nueve(request, pk):
 
 			set_por(data)
 
+			total=0
+			contador=0
+
+			for porcentaje in data['analisis'].dominio.all():
+				total+= porcentaje.porcentaje_cumplimiento
+				contador+=1
+			Evento.objects.filter(pk=0).update(porcentaje_cumplimiento=int(total/contador))
+			Evento.objects.filter(pk=0).update(porcentaje_no_cumplimiento=int(100 - (total/contador)))
+
 			redirect('analisis')
 
 	return render(request, template_name, data)
@@ -3207,6 +3302,8 @@ def analisis_diez(request, pk):
 	data['form'] = AnalisisGAPDominioDiezForm(request.POST or None)
 	data['profile'] = request.user
 	data['dominio'] = Dominio.objects.get(pk=10)
+	data['analisis'] = Evaluacion.objects.all()
+	
 	if request.method == 'POST':
 		if data['form'].is_valid():
 			#Subcontrol1
@@ -3392,6 +3489,15 @@ def analisis_diez(request, pk):
 			respuesta_diez.save()
 
 			set_por(data)
+
+			total=0
+			contador=0
+
+			for porcentaje in data['analisis'].dominio.all():
+				total+= porcentaje.porcentaje_cumplimiento
+				contador+=1
+			Evento.objects.filter(pk=0).update(porcentaje_cumplimiento=int(total/contador))
+			Evento.objects.filter(pk=0).update(porcentaje_no_cumplimiento=int(100 - (total/contador)))
 
 			redirect('analisis')
 
