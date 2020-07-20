@@ -24,6 +24,41 @@
 
 {% block content_body %}
 
+	<div class="col">
+    </div>
+    <div class="col-6" id="container">
+    </div>
+    <div class="col">
+    </div>
+	  <script src="https://code.highcharts.com/highcharts.src.js"></script>
+	  <script>
+	    Highcharts.chart('container', {
+	        chart: {
+	            type: 'column'
+	        },
+	        title: {
+	            text: 'Analisis GAP'
+	        },
+	        xAxis: {
+	            categories: ['Evaluacion']
+	        },
 
+	        series: [{
+	            name: 'Porcentaje cumplimiento',
+	            data: [
+	            {% for evaluacion in evaluacion %}
+	            	{{evaluacion.porcentaje_cumplimiento}}
+	            {% endfor %}
+	            ]
+	        }, {
+	            name: 'Porcentaje no cumplimiento',
+	            data: [
+	            {% for evaluacion in evaluacion %}
+	            	{{evaluacion.porcentaje_no_cumplimiento}}
+	            {% endfor %}
+	            ]
+	        }]
+	    });
+	  </script>
 
 {% endblock %}
