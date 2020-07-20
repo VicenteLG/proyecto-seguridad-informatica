@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('Logauth.urls')),
     path('charts/', include('ChartsGAP.urls')),
     path('recomendaciones/', include('Recomendaciones.urls')),
+    path('graficos/', include('Charts.urls')),
 ]
