@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'ChartsGAP.apps.ChartsgapConfig',
     'Recomendaciones.apps.RecomendacionesConfig',
     'Charts.apps.ChartsConfig',
-    'chartjs',
+    'rest_pandas',
 ]
 
 MIDDLEWARE = [
