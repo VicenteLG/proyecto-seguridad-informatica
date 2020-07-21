@@ -13,6 +13,9 @@ Analisis - Dominio 11
     <a class="nav-link" href="{% url 'analisis' %}">Analisis <span class="sr-only">(current)</span></a>
 </li>
 <li class="nav-item">
+    <a class="nav-link" href="{% url 'encuesta' %}">Gráficos</a>
+</li>
+<li class="nav-item">
     <a class="nav-link" href="{% url 'recomendaciones' %}">Recomendaciones</a>
 </li>
 {% endblock %}
@@ -35,7 +38,7 @@ Analisis - Dominio 11
 
     	{% buttons %}
       	<button type="submit" class="btn btn-primary btn-lg btn-block">
-        	Siguiente Dominio
+        	Enviar respuestas
       	</button>
     	{% endbuttons %}
   	</form>

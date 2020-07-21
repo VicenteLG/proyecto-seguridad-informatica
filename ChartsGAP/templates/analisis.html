@@ -13,6 +13,9 @@ Analisis
     <a class="nav-link" href="{% url 'analisis' %}">Analisis <span class="sr-only">(current)</span></a>
 </li>
 <li class="nav-item">
+    <a class="nav-link" href="{% url 'encuesta' %}">Gráficos</a>
+</li>
+<li class="nav-item">
     <a class="nav-link" href="{% url 'recomendaciones' %}">Recomendaciones</a>
 </li>
 {% endblock %}
@@ -35,37 +38,81 @@ Analisis
 					<h5 class="card-title">Dominio N°{{ dominio.pk }}: {{ dominio.nombre_dominio }} </h5>
 					{% if dominio.pk == 1 %}
 						<p class="card-text">SAMPLE TEXT</p>
-						<a href="{% url 'analisis_uno' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% if request.user.profile.dominio_uno == True %}
+							<p class="card-text">Ya completaste este dominio</p>
+						{% else %}
+							<a href="{% url 'analisis_uno' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% endif %}
 					{% elif dominio.pk == 2 %}
 						<p class="card-text">SAMPLE TEXT</p>
-						<a href="{% url 'analisis_dos' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% if request.user.profile.dominio_dos == True %}
+							<p class="card-text">Ya completaste este dominio</p>
+						{% else %}
+							<a href="{% url 'analisis_dos' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% endif %}
 					{% elif dominio.pk == 3 %}
 						<p class="card-text">SAMPLE TEXT</p>
-						<a href="{% url 'analisis_tres' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% if request.user.profile.dominio_tres == True %}
+							<p class="card-text">Ya completaste este dominio</p>
+						{% else %}
+							<a href="{% url 'analisis_tres' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% endif %}
 					{% elif dominio.pk == 4 %}
 						<p class="card-text">SAMPLE TEXT</p>
-						<a href="{% url 'analisis_cuatro' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% if request.user.profile.dominio_cuatro == True %}
+							<p class="card-text">Ya completaste este dominio</p>
+						{% else %}
+							<a href="{% url 'analisis_cuatro' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% endif %}
 					{% elif dominio.pk == 5 %}
 						<p class="card-text">SAMPLE TEXT</p>
-						<a href="{% url 'analisis_cinco' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% if request.user.profile.dominio_cinco == True %}
+							<p class="card-text">Ya completaste este dominio</p>
+						{% else %}
+							<a href="{% url 'analisis_cinco' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% endif %}
 					{% elif dominio.pk == 6 %}
 						<p class="card-text">SAMPLE TEXT</p>
-						<a href="{% url 'analisis_seis' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% if request.user.profile.dominio_seis == True %}
+							<p class="card-text">Ya completaste este dominio</p>
+						{% else %}
+							<a href="{% url 'analisis_seis' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% endif %}
 					{% elif dominio.pk == 7 %}
 						<p class="card-text">SAMPLE TEXT</p>
-						<a href="{% url 'analisis_siete' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% if request.user.profile.dominio_siete == True %}
+							<p class="card-text">Ya completaste este dominio</p>
+						{% else %}
+							<a href="{% url 'analisis_siete' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% endif %}
 					{% elif dominio.pk == 8 %}
 						<p class="card-text">SAMPLE TEXT</p>
-						<a href="{% url 'analisis_ocho' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% if request.user.profile.dominio_ocho == True %}
+							<p class="card-text">Ya completaste este dominio</p>
+						{% else %}
+							<a href="{% url 'analisis_ocho' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% endif %}
 					{% elif dominio.pk == 9 %}
 						<p class="card-text">SAMPLE TEXT</p>
-						<a href="{% url 'analisis_nueve' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% if request.user.profile.dominio_nueve == True %}
+							<p class="card-text">Ya completaste este dominio</p>
+						{% else %}
+							<a href="{% url 'analisis_nueve' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% endif %}
 					{% elif dominio.pk == 10 %}
 						<p class="card-text">SAMPLE TEXT</p>
-						<a href="{% url 'analisis_diez' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% if request.user.profile.dominio_diez == True %}
+							<p class="card-text">Ya completaste este dominio</p>
+						{% else %}
+							<a href="{% url 'analisis_diez' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% endif %}
 					{% else %}
 						<p class="card-text">SAMPLE TEXT</p>
-						<a href="{% url 'analisis_once' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% if request.user.profile.dominio_once == True %}
+							<p class="card-text">Ya completaste este dominio</p>
+						{% else %}
+							<a href="{% url 'analisis_once' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
+						{% endif %}
 					{% endif %}
 				</div>
 			</div>
