@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Logauth.apps.LogauthConfig',
     'ChartsGAP.apps.ChartsgapConfig',
     'Recomendaciones.apps.RecomendacionesConfig',
+    'Charts.apps.ChartsConfig',
 ]
 
 MIDDLEWARE = [
