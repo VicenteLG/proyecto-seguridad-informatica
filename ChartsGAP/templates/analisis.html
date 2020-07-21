@@ -37,77 +37,82 @@ Analisis
 				<div class="card-body">
 					<h5 class="card-title">Dominio N°{{ dominio.pk }}: {{ dominio.nombre_dominio }} </h5>
 					{% if dominio.pk == 1 %}
-						<p class="card-text">SAMPLE TEXT</p>
+						<p class="card-text"> Este dominio tiene el objetivo de proporcionar a la institución el soporte y gestión para la seguridad de la información de acuerdo a los requerimientos institucionales y requisitos legales pertinentes. Establecer la política alineada a los objetivos institucionales demostrando el compromiso con la Seguridad de la Información.</p>
 						{% if request.user.profile.dominio_uno == True %}
 							<p class="card-text">Ya completaste este dominio</p>
 						{% else %}
 							<a href="{% url 'analisis_uno' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
 						{% endif %}
 					{% elif dominio.pk == 2 %}
-						<p class="card-text">SAMPLE TEXT</p>
+						<p class="card-text">El objetivo es el establecimiento de un marco referencial a nivel de dirección la implementación y seguimiento de la seguridad de la información en la institución.
+						La dirección debe establecer la política de seguridad, asignar los roles a los comités y designar al encargado mediante una resolución, el cual se encargará de coordinar y revisar todo el proceso. La idea es el enfoque multidisciplinario para la seguridad de la información.</p>
 						{% if request.user.profile.dominio_dos == True %}
 							<p class="card-text">Ya completaste este dominio</p>
 						{% else %}
 							<a href="{% url 'analisis_dos' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
 						{% endif %}
 					{% elif dominio.pk == 3 %}
-						<p class="card-text">SAMPLE TEXT</p>
+						<p class="card-text">El objetivo de este dominio es una protección apropiada de los activos de la institución.
+							Todos los activos deben ser inventariados y deben tener un responsable para que se mantengan los controles necesarios y se realice un manejo adecuado de los mismos.</p>
 						{% if request.user.profile.dominio_tres == True %}
 							<p class="card-text">Ya completaste este dominio</p>
 						{% else %}
 							<a href="{% url 'analisis_tres' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
 						{% endif %}
 					{% elif dominio.pk == 4 %}
-						<p class="card-text">SAMPLE TEXT</p>
+						<p class="card-text">El objetivo de este dominio es una protección apropiada de los activos de la institución.
+						Todos los activos deben ser inventariados y deben tener un responsable para que se mantengan los controles necesarios y se realice un manejo adecuado de los mismos.</p>
 						{% if request.user.profile.dominio_cuatro == True %}
 							<p class="card-text">Ya completaste este dominio</p>
 						{% else %}
 							<a href="{% url 'analisis_cuatro' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
 						{% endif %}
 					{% elif dominio.pk == 5 %}
-						<p class="card-text">SAMPLE TEXT</p>
+						<p class="card-text">Este dominio tiene el objetivo de proteger las instalaciones de la institución y a la información sensible manejada en la institución. Establecimiento de barreras de seguridad y controles de entrada, salvaguarda de las instalaciones de apoyo, etc.</p>
 						{% if request.user.profile.dominio_cinco == True %}
 							<p class="card-text">Ya completaste este dominio</p>
 						{% else %}
 							<a href="{% url 'analisis_cinco' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
 						{% endif %}
 					{% elif dominio.pk == 6 %}
-						<p class="card-text">SAMPLE TEXT</p>
+						<p class="card-text">Este dominio tiene el objetivo de establecer los procedimientos y responsabilidades a nivel de operaciones para asegurar que se realicen correctamente los procesos relacionados con la información.
+						Se deben proteger los sistemas operativos, los sistemas de aplicación y los medios de procesamiento de la información que son vulnerables, estableciendo los controles necesarios para mantener su integridad.</p>
 						{% if request.user.profile.dominio_seis == True %}
 							<p class="card-text">Ya completaste este dominio</p>
 						{% else %}
 							<a href="{% url 'analisis_seis' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
 						{% endif %}
 					{% elif dominio.pk == 7 %}
-						<p class="card-text">SAMPLE TEXT</p>
+						<p class="card-text">Este dominio tiene el objetivo de asegurar el acceso autorizado a los sistemas de información.
+							Para ello se llevan a cabo una serie de acciones como el establecimiento de procedimientos formales para el control de acceso, implementación de políticas para evitar los accesos no autorizados, la aplicación de controles que eviten el acceso no autorizado a la red</p>
 						{% if request.user.profile.dominio_siete == True %}
 							<p class="card-text">Ya completaste este dominio</p>
 						{% else %}
 							<a href="{% url 'analisis_siete' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
 						{% endif %}
 					{% elif dominio.pk == 8 %}
-						<p class="card-text">SAMPLE TEXT</p>
+						<p class="card-text">Aplicable a las instituciones que desarrollen software internamente o que lo contraten a terceros para su proceso de negocio. Para garantizar la seguridad se deben establecer los requerimientos en la etapa de desarrollo o implementación del software.</p>
 						{% if request.user.profile.dominio_ocho == True %}
 							<p class="card-text">Ya completaste este dominio</p>
 						{% else %}
 							<a href="{% url 'analisis_ocho' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
 						{% endif %}
 					{% elif dominio.pk == 9 %}
-						<p class="card-text">SAMPLE TEXT</p>
+						<p class="card-text">Aplicable a las instituciones que desarrollen software internamente o que lo contraten a terceros para su proceso de negocio. Para garantizar la seguridad se deben establecer los requerimientos en la etapa de desarrollo o implementación del software.</p>
 						{% if request.user.profile.dominio_nueve == True %}
 							<p class="card-text">Ya completaste este dominio</p>
 						{% else %}
 							<a href="{% url 'analisis_nueve' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
 						{% endif %}
 					{% elif dominio.pk == 10 %}
-						<p class="card-text">SAMPLE TEXT</p>
+						<p class="card-text">Este dominio tiene como objetivo garantizar la continuidad operativa del negocio. Para ello se deben aplicar los controles necesarios para evitar o minimizar las posibles interrupciones o fallas de las actividades institucionales que puedan tener impacto.</p>
 						{% if request.user.profile.dominio_diez == True %}
 							<p class="card-text">Ya completaste este dominio</p>
 						{% else %}
 							<a href="{% url 'analisis_diez' request.user.pk %}" class="btn btn-primary">Responder preguntas</a>
 						{% endif %}
 					{% else %}
-						<p class="card-text">SAMPLE TEXT</p>
+						<p class="card-text">Este dominio tiene como objetivo garantizar la continuidad operativa del negocio. Para ello se deben aplicar los controles necesarios para evitar o minimizar las posibles interrupciones o fallas de las actividades institucionales que puedan tener impacto.</p>
 						{% if request.user.profile.dominio_once == True %}
 							<p class="card-text">Ya completaste este dominio</p>
 						{% else %}
