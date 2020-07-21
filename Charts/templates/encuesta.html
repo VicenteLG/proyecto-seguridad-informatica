@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block navbar %}
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'analisis' %}">Analisis</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'recomendaciones' %}">Recomendaciones</a>
+</li>
+{% endblock %}
+
+{% block content_head %}
+<h1>Charts</h1>
+{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fas fa-home"></i></a></li>
+    <li class="breadcrumb-item active" aria-current="page">Charts</li>
+{% endblock %}
+
+{% block content_body %}
+	
+	<div class="col"></div>
+	<div class="col-6">a a a a </div>
+	<div class="col"></div>
+	</div>
+	<div class="row">
+		<div class="col"></div>
+	    <div class="col-6" id="container"></div>
+	    <div class="col"></div>
+		  <script src="https://code.highcharts.com/highcharts.src.js"></script>
+		  <script>
+		    Highcharts.chart('container', {
+		        chart: {
+		            type: 'column'
+		        },
+		        title: {
+		            text: 'Analisis GAP'
+		        },
+		        xAxis: {
+		            categories: ['Evaluacion']
+		        },
+
+		        series: [{
+		            name: 'Porcentaje cumplimiento',
+		            data: [
+		            {% for evaluacion in evaluacion %}
+		            	{{evaluacion.porcentaje_cumplimiento}}
+		            {% endfor %}
+		            ]
+		        }, {
+		            name: 'Porcentaje no cumplimiento',
+		            data: [
+		            {% for evaluacion in evaluacion %}
+		            	{{evaluacion.porcentaje_no_cumplimiento}}
+		            {% endfor %}
+		            ]
+		        }]
+		    });
+		  </script>
+
+{% endblock %}
