@@ -25,8 +25,6 @@ class Seccion(models.Model):
 	porcentaje_no_cumplimiento = models.PositiveIntegerField(default=0)
 	control = models.ManyToManyField(Control, null=True, blank=True)
 
-
-
 class Dominio(models.Model):
 	nombre_dominio = models.CharField(max_length=75)
 	porcentaje_cumplimiento = models.PositiveIntegerField(default=0)
