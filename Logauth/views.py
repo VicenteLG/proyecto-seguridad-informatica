@@ -8,6 +8,12 @@ from django.core.exceptions import ValidationError
 
 # Create your views here.
 
+def home(request):
+	template_name = "home.html"
+	data = {}
+
+	return render(request, template_name, data)
+
 def login(request):
 	template_name = "login.html"
 	data = {}
