@@ -2,11 +2,14 @@
 {% load bootstrap4 %}
 
 {% block navbar %}
-<li class="nav-item active">
-    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'home' %}">Home</a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="{% url 'analisis' %}">Analisis</a>
+</li>
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'encuesta' %}">Gráficos<span class="sr-only">(current)</span></a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="{% url 'recomendaciones' %}">Recomendaciones</a>
@@ -14,53 +17,306 @@
 {% endblock %}
 
 {% block content_head %}
-<h1>Charts</h1>
+<h1>Gráficos</h1>
 {% endblock %}
 
 {% block breadcrumb %}
     <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fas fa-home"></i></a></li>
-    <li class="breadcrumb-item active" aria-current="page">Charts</li>
+    <li class="breadcrumb-item active" aria-current="page">Gráficos</li>
 {% endblock %}
 
 {% block content_body %}
 	
 	<div class="col"></div>
-	<div class="col-6">a a a a </div>
-	<div class="col"></div>
-	</div>
-	<div class="row">
-		<div class="col"></div>
-	    <div class="col-6" id="container"></div>
-	    <div class="col"></div>
-		  <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <div class="col-6" id="container"></div>
+    <div class="col"></div>
+</div>
+		  <script src="https://code.highcharts.com/highcharts.js"></script>
+		  <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 		  <script>
 		    Highcharts.chart('container', {
-		        chart: {
-		            type: 'column'
-		        },
-		        title: {
-		            text: 'Analisis GAP'
-		        },
-		        xAxis: {
-		            categories: ['Evaluacion']
-		        },
+			    chart: {
+			        type: 'column'
+			    },
+			    title: {
+			        text: 'Analisis GAP'
+			    },
+			    xAxis: {
+			        type: 'category',
+			    },
 
-		        series: [{
-		            name: 'Porcentaje cumplimiento',
-		            data: [
-		            {% for evaluacion in evaluacion %}
-		            	{{evaluacion.porcentaje_cumplimiento}}
-		            {% endfor %}
-		            ]
-		        }, {
-		            name: 'Porcentaje no cumplimiento',
-		            data: [
-		            {% for evaluacion in evaluacion %}
-		            	{{evaluacion.porcentaje_no_cumplimiento}}
-		            {% endfor %}
-		            ]
-		        }]
-		    });
-		  </script>
+			    legend: {
+			        enabled: false
+			    },
 
+			    yAxis:{
+			    	labels: {
+            			format: '{value} %'
+        			},
+        			title: {
+            			text: 'Porcentajes',
+            		},
+			    },
+
+			    plotOptions: {
+			        series: {
+			            borderWidth: 0,
+			            dataLabels: {
+			                enabled: true
+			            }
+			        }
+			    },
+
+			    series: [{
+			        name: 'Porcenta Cumplimiento:',
+			        colorByPoint: true,
+			        data: [{
+			            name: 'Dominio 1: {{dominio_uno.nombre_dominio}}',
+			            y: {{dominio_uno.porcentaje_cumplimiento}},
+			            drilldown: 'dominio_uno'
+			        }, {
+			            name: 'Dominio 2: {{dominio_dos.nombre_dominio}}',
+			            y: {{dominio_dos.porcentaje_cumplimiento}},
+			            drilldown: 'dominio_dos'
+			        }, {
+			            name: 'Dominio 3: {{dominio_tres.nombre_dominio}}',
+			            y: {{dominio_tres.porcentaje_cumplimiento}},
+			            drilldown: 'dominio_tres'
+			        }, {
+			            name: 'Dominio 4: {{dominio_cuatro.nombre_dominio}}',
+			            y: {{dominio_cuatro.porcentaje_cumplimiento}},
+			            drilldown: 'dominio_cuatro'
+			        }, {
+			            name: 'Dominio 5: {{dominio_cinco.nombre_dominio}}',
+			            y: {{dominio_cinco.porcentaje_cumplimiento}},
+			            drilldown: 'dominio_cinco'
+			        }, {
+			            name: 'Dominio 6: {{dominio_seis.nombre_dominio}}',
+			            y: {{dominio_seis.porcentaje_cumplimiento}},
+			            drilldown: 'dominio_seis'
+			        }, {
+			            name: 'Dominio 7: {{dominio_siete.nombre_dominio}}',
+			            y: {{dominio_siete.porcentaje_cumplimiento}},
+			            drilldown: 'dominio_siete'
+			        }, {
+			            name: 'Dominio 8: {{dominio_ocho.nombre_dominio}}',
+			            y: {{dominio_ocho.porcentaje_cumplimiento}},
+			            drilldown: 'dominio_ocho'
+			        }, {
+			            name: 'Dominio 9: {{dominio_nueve.nombre_dominio}}',
+			            y: {{dominio_nueve.porcentaje_cumplimiento}},
+			            drilldown: 'dominio_nueve'
+			        }, {
+			            name: 'Dominio 10: {{dominio_diez.nombre_dominio}}',
+			            y: {{dominio_diez.porcentaje_cumplimiento}},
+			            drilldown: 'dominio_diez'
+			        }, {
+			            name: 'Dominio 11: {{dominio_once.nombre_dominio}}',
+			            y: {{dominio_once.porcentaje_cumplimiento}},
+			            drilldown: 'dominio_once'
+			        }]
+			    }],
+			    drilldown: {
+			        series: [{
+			            id: 'dominio_uno',
+			            data: [
+			            	{% for seccion in dominio_uno.seccion.all %}
+			            		{
+			            			name: 'Seccion {{forloop.counter}}: {{seccion.nombre_seccion}}',
+			            			y: {{seccion.porcentaje_cumplimiento}},
+			            			drilldown: '{{seccion.pk}}'
+			            		},
+			            	{% endfor %}
+			            	]
+			        }, {
+			            id: 'dominio_dos',
+			            data: [
+			                {% for seccion in dominio_dos.seccion.all %}
+			            		{
+			            			name: 'Seccion {{forloop.counter}}: {{seccion.nombre_seccion}}',
+			            			y: {{seccion.porcentaje_cumplimiento}},
+			            			drilldown: '{{seccion.pk}}'
+			            		},
+			            	{% endfor %}
+			            	]
+			        }, {
+			            id: 'dominio_tres',
+			            data: [
+			                {% for seccion in dominio_tres.seccion.all %}
+			            		{
+			            			name: 'Seccion {{forloop.counter}}: {{seccion.nombre_seccion}}',
+			            			y: {{seccion.porcentaje_cumplimiento}},
+			            			drilldown: '{{seccion.pk}}'
+			            		},
+			            	{% endfor %}
+			            ]
+			        }, {
+			            id: 'dominio_cuatro',
+			            data: [
+			                {% for seccion in dominio_cuatro.seccion.all %}
+			            		{
+			            			name: 'Seccion {{forloop.counter}}: {{seccion.nombre_seccion}}',
+			            			y: {{seccion.porcentaje_cumplimiento}},
+			            			drilldown: '{{seccion.pk}}'
+			            		},
+			            	{% endfor %}
+			            ]
+			        }, {
+			            id: 'dominio_cinco',
+			            data: [
+			                {% for seccion in dominio_cinco.seccion.all %}
+			            		{
+			            			name: 'Seccion {{forloop.counter}}: {{seccion.nombre_seccion}}',
+			            			y: {{seccion.porcentaje_cumplimiento}},
+			            			drilldown: '{{seccion.pk}}'
+			            		},
+			            	{% endfor %}
+			            ]
+			        }, {
+			            id: 'dominio_seis',
+			            data: [
+			                {% for seccion in dominio_seis.seccion.all %}
+			            		{
+			            			name: 'Seccion {{forloop.counter}}: {{seccion.nombre_seccion}}',
+			            			y: {{seccion.porcentaje_cumplimiento}},
+			            			drilldown: '{{seccion.pk}}'
+			            		},
+			            	{% endfor %}
+			            ]
+			        }, {
+			            id: 'dominio_siete',
+			            data: [
+			                {% for seccion in dominio_siete.seccion.all %}
+			            		{
+			            			name: 'Seccion {{forloop.counter}}: {{seccion.nombre_seccion}}',
+			            			y: {{seccion.porcentaje_cumplimiento}},
+			            			drilldown: '{{seccion.pk}}'
+			            		},
+			            	{% endfor %}
+			            ]
+			        }, {
+			            id: 'dominio_ocho',
+			            data: [
+			                {% for seccion in dominio_ocho.seccion.all %}
+			            		{
+			            			name: 'Seccion {{forloop.counter}}: {{seccion.nombre_seccion}}',
+			            			y: {{seccion.porcentaje_cumplimiento}},
+			            			drilldown: '{{seccion.pk}}'
+			            		},
+			            	{% endfor %}
+			            ]
+			        }, {
+			            id: 'dominio_nueve',
+			            data: [
+			                {% for seccion in dominio_nueve.seccion.all %}
+			            		{
+			            			name: 'Seccion {{forloop.counter}}: {{seccion.nombre_seccion}}',
+			            			y: {{seccion.porcentaje_cumplimiento}},
+			            			drilldown: '{{seccion.pk}}'
+			            		},
+			            	{% endfor %}
+			            ]
+			        }, {
+			            id: 'dominio_diez',
+			            data: [
+			                {% for seccion in dominio_diez.seccion.all %}
+			            		{
+			            			name: 'Seccion {{forloop.counter}}: {{seccion.nombre_seccion}}',
+			            			y: {{seccion.porcentaje_cumplimiento}},
+			            			drilldown: '{{seccion.pk}}'
+			            		},
+			            	{% endfor %}
+			            ]
+			        }, {
+			            id: 'dominio_once',
+			            data: [
+			                {% for seccion in dominio_once.seccion.all %}
+			            		{
+			            			name: 'Seccion {{forloop.counter}}: {{seccion.nombre_seccion}}',
+			            			y: {{seccion.porcentaje_cumplimiento}},
+			            			drilldown: '{{seccion.pk}}'
+			            		},
+			            	{% endfor %}
+			            ]
+			        }, {% for seccion in dominio_uno.seccion.all %}{
+                		id: '{{seccion.pk}}',
+                		data: [
+                				{% for control in seccion.control.all %}
+			            		['Control {{forloop.counter}}: {{control.nombre_control}}', {{control.porcentaje_cumplimiento}}],
+			            		{% endfor %}
+                			]
+            		},{% endfor %} {% for seccion in dominio_dos.seccion.all %}{
+                		id: '{{seccion.pk}}',
+                		data: [
+                				{% for control in seccion.control.all %}
+			            		['Control {{forloop.counter}}: {{control.nombre_control}}', {{control.porcentaje_cumplimiento}}],
+			            		{% endfor %}
+                			]
+            		},{% endfor %} {% for seccion in dominio_tres.seccion.all %}{
+                		id: '{{seccion.pk}}',
+                		data: [
+                				{% for control in seccion.control.all %}
+			            		['Control {{forloop.counter}}: {{control.nombre_control}}', {{control.porcentaje_cumplimiento}}],
+			            		{% endfor %}
+                			]
+            		},{% endfor %} {% for seccion in dominio_cuatro.seccion.all %}{
+                		id: '{{seccion.pk}}',
+                		data: [
+                				{% for control in seccion.control.all %}
+			            		['Control {{forloop.counter}}: {{control.nombre_control}}', {{control.porcentaje_cumplimiento}}],
+			            		{% endfor %}
+                			]
+            		},{% endfor %} {% for seccion in dominio_cinco.seccion.all %}{
+                		id: '{{seccion.pk}}',
+                		data: [
+                				{% for control in seccion.control.all %}
+			            		['Control {{forloop.counter}}: {{control.nombre_control}}', {{control.porcentaje_cumplimiento}}],
+			            		{% endfor %}
+                			]
+            		},{% endfor %} {% for seccion in dominio_seis.seccion.all %}{
+                		id: '{{seccion.pk}}',
+                		data: [
+                				{% for control in seccion.control.all %}
+			            		['Control {{forloop.counter}}: {{control.nombre_control}}', {{control.porcentaje_cumplimiento}}],
+			            		{% endfor %}
+                			]
+            		},{% endfor %} {% for seccion in dominio_siete.seccion.all %}{
+                		id: '{{seccion.pk}}',
+                		data: [
+                				{% for control in seccion.control.all %}
+			            		['Control {{forloop.counter}}: {{control.nombre_control}}', {{control.porcentaje_cumplimiento}}],
+			            		{% endfor %}
+                			]
+            		},{% endfor %} {% for seccion in dominio_ocho.seccion.all %}{
+                		id: '{{seccion.pk}}',
+                		data: [
+                				{% for control in seccion.control.all %}
+			            		['Control {{forloop.counter}}: {{control.nombre_control}}', {{control.porcentaje_cumplimiento}}],
+			            		{% endfor %}
+                			]
+            		},{% endfor %} {% for seccion in dominio_nueve.seccion.all %}{
+                		id: '{{seccion.pk}}',
+                		data: [
+                				{% for control in seccion.control.all %}
+			            		['Control {{forloop.counter}}: {{control.nombre_control}}', {{control.porcentaje_cumplimiento}}],
+			            		{% endfor %}
+                			]
+            		},{% endfor %} {% for seccion in dominio_diez.seccion.all %}{
+                		id: '{{seccion.pk}}',
+                		data: [
+                				{% for control in seccion.control.all %}
+			            		['Control {{forloop.counter}}: {{control.nombre_control}}', {{control.porcentaje_cumplimiento}}],
+			            		{% endfor %}
+                			]
+            		},{% endfor %} {% for seccion in dominio_once.seccion.all %}{
+                		id: '{{seccion.pk}}',
+                		data: [
+                				{% for control in seccion.control.all %}
+			            		['Control {{forloop.counter}}: {{control.nombre_control}}', {{control.porcentaje_cumplimiento}}],
+			            		{% endfor %}
+                			]
+            		},{% endfor %}]
+			    }
+			});
+    			</script>
 {% endblock %}
